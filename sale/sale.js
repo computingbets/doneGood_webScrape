@@ -7,7 +7,7 @@ var app     = express();
 app.get('/scrape', function(req, res){
 
   //All the web scraping magic will happen here
-  url = 'https://www.fairandsimple.com/shop/direct/men';
+  url = 'https://www.fairandsimple.com/shop/direct/sales';
 
   // The structure of our request call
   // The first parameter is our URL
