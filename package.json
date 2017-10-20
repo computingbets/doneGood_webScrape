@@ -1,0 +1,25 @@
+{
+  "name": "donegood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./bin/express server"
+  },
+  "dependencies": { "express": "~4.13.4"
+  },
+  "engines": {
+  "node": "4.4.0"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logicmyth/doneGood_webScrape.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logicmyth/doneGood_webScrape/issues"
+  },
+  "homepage": "https://github.com/logicmyth/doneGood_webScrape#readme"
+},

@@ -45,11 +45,13 @@ app.get('/scrape', function(req, res){
 
          // Once we have our title, we'll store it to the our json object.
 
-              json.imageURL = imageURL;
-      }
-  })
-})
-})
+             json.imageURL = imageURL;
+             json.productURL = productURL;
+             json.productPrice = productPrice;
+             json.productName = productName;
+     })
+  }
+
 // To write to the system we will use the built in 'fs' library.
 // In this example we will pass 3 parameters to the writeFile function
 // Parameter 1 :  output.json - this is what the created filename will be called

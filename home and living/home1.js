@@ -45,7 +45,10 @@ app.get('/scrape', function(req, res){
 
          // Once we have our title, we'll store it to the our json object.
 
-              json.imageURL = imageURL;
+             json.imageURL = imageURL;
+             json.productURL = productURL;
+             json.productPrice = productPrice;
+             json.productName = productName;
       }
   })
 })
