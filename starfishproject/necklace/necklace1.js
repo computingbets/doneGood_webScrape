@@ -7,7 +7,7 @@ var app     = express();
 app.get('/scrape', function(req, res){
 
   //All the web scraping magic will happen here
-  url = 'https://www.fairandsimple.com/shop/direct/sales';
+  url = 'https://starfishproject.com/product-category/all/necklace/';
 
   // The structure of our request call
   // The first parameter is our URL
@@ -29,31 +29,26 @@ app.get('/scrape', function(req, res){
 
           // We'll use the unique header class as a starting point.
 
-          $('.product-box').filter(function(){
+          $('.product-small').filter(function(){
 
          // Let's store the data we filter into a variable so we can easily see what's going on.
 
               var data = $(this);
 
-         // In examining the DOM we notice that the title rests within the first child element of the header tag.
-         // Utilizing jQuery we can easily navigate and get the text by writing the following code:
+            //.next() method used because nthChild not supported by Cheerio.js
+              imageURL = data.children().first().next().next().next().next().next().next().next().next().attr('src');
+              productURL = data.children().first().attr('href');
+              productName = data.children().first().next().next().next().next().next().next().next().next().next().next().next().next().next().text();
+              productPrice = data.children().first().next().next().next().next().next().next().next().next().next().next().next().next().next().next().next().text();
 
-              imageURL = data.children().first().next().attr('src');
-              productURL = data.children().last().attr('href');
-              productPrice = data.children().last().text();
-              productName = data.children().first().next().next().text();
-
-         // Once we have our title, we'll store it to the our json object.
-
-              json.imageURL = imageURL;
-              json.productURL = productURL;
-              json.productPrice = productPrice;
-              json.productName = productName;
+             json.imageURL = imageURL;
+             json.productURL = productURL;
+             json.productPrice = productPrice;
+             json.productName = productName;
       }
   })
 })
 })
-
 // To write to the system we will use the built in 'fs' library.
 // In this example we will pass 3 parameters to the writeFile function
 // Parameter 1 :  output.json - this is what the created filename will be called
